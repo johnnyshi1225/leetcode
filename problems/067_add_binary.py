@@ -6,6 +6,8 @@
 # File Name: add_binary.py
 # Description:
 #########################################################################
+
+
 class Solution:
     def addBinary(self, a, b):
         """
@@ -54,6 +56,7 @@ class Solution:
             return ''.join(ret)
         else:
             return ''.join(ret[1:])
+
 
 '''
 Example 1:
