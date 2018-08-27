@@ -6,6 +6,8 @@
 # File Name: remove_element.py
 # Description:
 #########################################################################
+
+
 class Solution:
     def removeElement(self, nums, val):
         """
@@ -19,6 +21,7 @@ class Solution:
                 nums[i] = num
                 i += 1
         return i
+
 
 nums = [3, 2, 3, 2, 1]
 val = 3

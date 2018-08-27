@@ -6,6 +6,8 @@
 # File Name: reverse_string.py
 # Description:
 #########################################################################
+
+
 class Solution:
     def reverseString(self, s):
         """
@@ -17,6 +19,7 @@ class Solution:
         array_s = list(s)
         array_s.reverse()
         return ''.join(array_s)
+
 
 s = '123'
 s = 'A man, a plan, a canal: Panama'
