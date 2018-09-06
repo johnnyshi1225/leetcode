@@ -118,8 +118,14 @@ class MyLinkedList:
         """
         cur = self.__get(index)
         if cur:
-            cur.prev.next = cur.next
-            cur.next.prev = cur.prev
+            if cur.prev:
+                cur.prev.next = cur.next
+            else:
+                self.head = cur.next
+            if cur.next:
+                cur.next.prev = cur.prev
+            else:
+                self.tail = cur.prev
             self.length -= 1
             del cur
 
@@ -147,7 +153,7 @@ print(linkedList)
 linkedList.addAtIndex(1, 2)  # linked list becomes 1->2->3
 print(linkedList)
 print(linkedList.get(1))            # returns 2
-linkedList.deleteAtIndex(1)  # now the linked list is 1->3
+linkedList.deleteAtIndex(0)  # now the linked list is 1->3
 print(linkedList)
 print(linkedList.get(1))            # returns 3
 
