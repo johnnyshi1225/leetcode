@@ -13,6 +13,7 @@ class ListNode:
         self.next = None
 
 class Solution:
+    # not in-place
     def reverseList(self, head):
         """
         :type head: ListNode
