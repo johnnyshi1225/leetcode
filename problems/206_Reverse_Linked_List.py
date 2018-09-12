@@ -6,6 +6,7 @@
 # File Name: 206_Reverse_Linked_List.py
 # Description:
 #########################################################################
+from simple_linked_list import linked_list, print_linked_list
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, x):
@@ -14,7 +15,7 @@ class ListNode:
 
 class Solution:
     # not in-place
-    def reverseList(self, head):
+    def reverseList1(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
@@ -31,12 +32,15 @@ class Solution:
             cur = cur.next
         return new_head
 
+    # in-place
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
 
-head = ListNode(1)
-head.next = ListNode(2)
-head.next.next = ListNode(3)
+
+head = linked_list([1, 2, 3, 4])
 ret = Solution().reverse(head)
-while ret:
-    print(ret.val)
-    ret = ret.next
+print_linked_list(ret)
 # vim: set expandtab ts=4 sts=4 sw=4 :
