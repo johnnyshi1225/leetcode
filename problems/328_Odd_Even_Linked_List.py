@@ -26,12 +26,12 @@ class ListNode:
 
 
 class Solution:
+    # not in-place
     def oddEvenList1(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
         """
-        # not in-place
         if not head:
             return None
         odd_head = None
@@ -62,9 +62,30 @@ class Solution:
         odd_tail.next = even_head
         return head
 
+    # in-place
+    def oddEvenList2(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head:
+            return None
+        oddTail = head
+        evenCur = head.next
+        while evenCur and evenCur.next:
+            tmp = evenCur.next
+            evenCur.next = tmp.next
+            tmp.next = oddTail.next
+            oddTail.next = tmp
+            oddTail = oddTail.next
+            evenCur = evenCur.next
+        return head
+
 
 head = linked_list([2, 1, 3, 5, 6, 4, 7])
 head = linked_list([1, 2, 3])
-ret = Solution().oddEvenList1(head)
+head = linked_list([1, 2, 3, 4, 5])
+head = linked_list([1, 2, 3, 4])
+ret = Solution().oddEvenList2(head)
 print_linked_list(ret)
 # vim: set expandtab ts=4 sts=4 sw=4 :
