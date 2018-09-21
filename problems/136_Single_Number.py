@@ -9,7 +9,7 @@
 
 
 class Solution:
-    def singleNumber(self, nums):
+    def singleNumber1(self, nums):
         """
         :type nums: List[int]
         :rtype: int
@@ -22,6 +22,16 @@ class Solution:
                 hset.add(n)
         if hset:
             return hset.pop()
+
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        ret = 0
+        for n in nums:
+            ret ^= n
+        return ret
 
 
 nums = [1, 2, 3, 2, 1]
