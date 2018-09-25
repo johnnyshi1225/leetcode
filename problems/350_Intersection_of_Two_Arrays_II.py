@@ -9,7 +9,7 @@
 
 
 class Solution:
-    def intersect(self, nums1, nums2):
+    def intersect1(self, nums1, nums2):
         """
         :type nums1: List[int]
         :type nums2: List[int]
@@ -33,6 +33,24 @@ class Solution:
             else:
                 hmap[n] = 1
         return hmap
+
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        if not nums1 or not nums2:
+            return []
+        ret = []
+        map1 = self._count(nums1)
+        for n in nums2:
+            if n in map1:
+                ret.append(n)
+                map1[n] -= 1
+                if map1[n] == 0:
+                    del map1[n]
+        return ret
 
 
 nums1 = [1, 2, 2, 1]
