@@ -15,6 +15,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
     def levelOrder(self, root):
         """
@@ -22,6 +23,8 @@ class Solution:
         :rtype: List[List[int]]
         """
         ret = []
+        if not root:
+            return ret
         level_list = [root]
         while level_list:
             ret.append([])
